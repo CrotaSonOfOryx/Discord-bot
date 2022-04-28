@@ -2,8 +2,6 @@ import os
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
-import youtube_dl
-import asyncio
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -39,13 +37,13 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('Nie posiadasz odpowiedniej rangi dla tej komendy <:losos:949354894488383488>')
 
-@bot.command(name='test', help='Testowa komenda')                                               #testowa komenda
+@bot.command(name='test', help='Test')                                               #testowa komenda
 @commands.has_role('Uprawnienia')
 async def nine_nine(ctx):
     response = 'Tu nie ma światuła!'
     await ctx.send(response)
 
-for cog_new in os.listdir("C:/Users/socze/Desktop/bot/cogs"):
+for cog_new in os.listdir("C:/Users/socze/Desktop/bot/cogs"): #cogs
     if cog_new.endswith(".py"):
         try:
             cog = f"cogs.{cog_new.replace('.py', '')}"
